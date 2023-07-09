@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "263588192418",
+    "project_id": "pokeworld-28cd4",
+    "storage_bucket": "pokeworld-28cd4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263588192418:android:2866161064f35c21d1f7fb",
+        "android_client_info": {
+          "package_name": "and.andrei.pokeworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263588192418-gkopiia7vs1dmbnv9k10u0vamt1tv451.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBporIhdkLYemM8IQcbfToOCFUWEizw_dk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "263588192418-gkopiia7vs1dmbnv9k10u0vamt1tv451.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
