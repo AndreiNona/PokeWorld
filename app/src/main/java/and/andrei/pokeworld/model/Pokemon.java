@@ -1,18 +1,33 @@
 package and.andrei.pokeworld.model;
 
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "pokemon_table")
 public class Pokemon {
+    @PrimaryKey(autoGenerate = true)
     private long id;
     private String name;
     private int pokedexNumber;
     private String nickname;
-    private double CP; //Combat power
+    private int CP; //Combat power
     private char gender;
 
+    @Ignore
     public Pokemon() {
     }
+    @Ignore
+    public Pokemon(String name, int pokedexNumber, String nickname) {
+        this.name = name;
+        this.pokedexNumber = pokedexNumber;
+        this.nickname = nickname;
+        //this.CP = CP;
+        //this.gender = gender;
+    }
 
-    public Pokemon(long id, String name, int pokedexNumber, String nickname, double CP, char gender) {
-        this.id = id;
+    public Pokemon( String name, int pokedexNumber, String nickname, int CP, char gender) {
         this.name = name;
         this.pokedexNumber = pokedexNumber;
         this.nickname = nickname;
@@ -54,11 +69,11 @@ public class Pokemon {
         this.nickname = nickname;
     }
 
-    public double getCP() {
+    public int getCP() {
         return CP;
     }
 
-    public void setCP(double CP) {
+    public void setCP(int CP) {
         this.CP = CP;
     }
 
