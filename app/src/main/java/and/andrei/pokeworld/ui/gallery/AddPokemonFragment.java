@@ -32,8 +32,9 @@ public class AddPokemonFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState){
         super.onViewCreated(view,savedInstanceState);
         addPokemonViewModel = new ViewModelProvider(getActivity()).get(AddPokemonViewModel.class);
-        initializeViews(view);
         placeholderPokemon = new Pokemon();
+        initializeViews(view);
+
     }
     private void initializeViews(View view){
         name = view.findViewById(R.id.edit_text_name);
@@ -48,14 +49,11 @@ public class AddPokemonFragment extends Fragment {
             public void onClick(View view) {
                 String Name,Nickname;int Number,CP;char Gender;
                 Name=name.getText().toString();Nickname=nickname.getText().toString();
-                Number=Integer.parseInt(number.getText().toString());CP=Integer.parseInt(cp.getText().toString());
-                Gender=gender.getText().charAt(0);
-//                placeholderPokemon.setName(name.getText().toString());placeholderPokemon.setPokedexNumber(Integer.parseInt(number.getText().toString()));
-//                placeholderPokemon.setNickname(nickname.getText().toString());placeholderPokemon.setCP(Integer.parseInt(cp.getText().toString()));
-//                placeholderPokemon.setGender(gender.getText().charAt(0));
                 if(Name.isEmpty() ||Nickname.isEmpty()){
                     Toast.makeText(getContext(), "Please fill in all the fields", Toast.LENGTH_SHORT).show();
                 }else{
+                    Number=Integer.parseInt(number.getText().toString());CP=Integer.parseInt(cp.getText().toString());
+                    Gender=gender.getText().charAt(0);
                     placeholderPokemon.setName(Name);placeholderPokemon.setNickname(Nickname);
                     placeholderPokemon.setPokedexNumber(Number);placeholderPokemon.setCP(CP);
                     placeholderPokemon.setGender(Gender);

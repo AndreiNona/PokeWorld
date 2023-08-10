@@ -14,13 +14,13 @@ public class PokemonRepository implements PokemonDao{
 
     private final PokemonDao pokemonDao;
     private static  PokemonRepository instance;
-    private LiveData<List<Pokemon>> allPokemon;
+    private LiveData<List<Pokemon>> allPokemons;
     private final ExecutorService executorService;
 
     private PokemonRepository(Application application){
         PokeWorldDataBase dataBase = PokeWorldDataBase.getInstance(application);
         pokemonDao = dataBase.pokemonDao();
-        allPokemon = pokemonDao.getAllPokemon();
+        allPokemons = pokemonDao.getAllPokemons();
         executorService = Executors.newFixedThreadPool(2);
     }
 
@@ -30,8 +30,8 @@ public class PokemonRepository implements PokemonDao{
         }
         return instance;
     }
-    public LiveData<List<Pokemon>> getAllPokemon(){
-        return allPokemon;
+    public LiveData<List<Pokemon>> getAllPokemons(){
+        return allPokemons;
     }
     public void insert(Pokemon pokemon){
         executorService.execute(() -> pokemonDao.insert(pokemon));

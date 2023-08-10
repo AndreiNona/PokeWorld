@@ -22,7 +22,7 @@ public interface PokemonDao {
     @Delete
     void delete(Pokemon pokemon);
 
-    @Query("SELECT * FROM pokemon_table ORDER BY CP DESC")
-    LiveData<List<Pokemon>> getAllPokemon();
+    @Query("SELECT * FROM pokemon_table")
+    LiveData<List<Pokemon>> getAllPokemons();
 
 }
