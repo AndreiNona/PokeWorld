@@ -35,6 +35,9 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
     public void onBindViewHolder(@NonNull PokemonAdapter.PokemonViewHolder holder, int position) {
 
         holder.pokemonName.setText(pokemons.get(position).getName());
+        holder.pokemonNickName.setText(pokemons.get(position).getNickname());
+        holder.pokemonPokedexNo.setText(String.valueOf(pokemons.get(position).getPokedexNumber()));
+        holder.pokemonCombatPower.setText(String.valueOf(pokemons.get(position).getCP()));
 
     }
 
@@ -48,9 +51,15 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
     class PokemonViewHolder extends RecyclerView.ViewHolder{
 
         TextView pokemonName;
+        TextView pokemonNickName;
+        TextView pokemonPokedexNo;
+        TextView pokemonCombatPower;
         PokemonViewHolder(View pokeView){
             super(pokeView);
-            pokemonName = pokeView.findViewById(R.id.text_pokemon_name);
+            pokemonName = pokeView.findViewById(R.id.text_pokemon_card_name);
+            pokemonPokedexNo = pokeView.findViewById(R.id.text_pokemon_card_pokedex_number);
+            pokemonNickName =pokeView.findViewById(R.id.text_pokemon_card_nickname);
+            pokemonCombatPower = pokeView.findViewById(R.id.text_pokemon_card_combat_power);
         }
 
     }

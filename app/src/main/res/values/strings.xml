@@ -8,7 +8,7 @@
     <string name="action_LogOut">Log Out</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_add_pokemon">AddPokemon</string>
+    <string name="menu_catch_pokemon">Catch Pokemon!</string>
     <string name="menu_pokedex">Pokedex</string>
     <string name="menu_about">About Us!</string>
     <string name="title_activity_login">LoginActivity</string>

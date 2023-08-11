@@ -45,9 +45,27 @@ public class HomeFragment extends Fragment {
         recyclerView.hasFixedSize();
         //For testing recyclerView
         List<Pokemon> pL = new ArrayList<>();
-        pL.add(new Pokemon("Andrei",2,"Bob"));
-        pL.add(new Pokemon("Andr3i",23,"B3b"));
-        pL.add(new Pokemon("An2ei",4,"Bo1"));
+        pL.add(new Pokemon("Eevee",133,"Verstappen",240,'M'));
+        pL.add(new Pokemon("Eevee",133,"Perez",420,'M'));
+        pL.add(new Pokemon("Eevee",133,"Alonso",380,'M'));
+        pL.add(new Pokemon("Eevee",133,"Hamilton",240,'M'));
+        pL.add(new Pokemon("Eevee",133,"Leclerc",420,'M'));
+        pL.add(new Pokemon("Eevee",133,"Russell",380,'M'));
+        pL.add(new Pokemon("Eevee",133,"Sainz",240,'M'));
+        pL.add(new Pokemon("Eevee",133,"Norris",420,'M'));
+        pL.add(new Pokemon("Eevee",133,"Stroll",380,'M'));
+        pL.add(new Pokemon("Eevee",133,"Ocon",240,'M'));
+        pL.add(new Pokemon("Eevee",133,"Piastri",420,'M'));
+        pL.add(new Pokemon("Eevee",133,"Gasly",380,'M'));
+        pL.add(new Pokemon("Eevee",133,"Albon",240,'M'));
+        pL.add(new Pokemon("Eevee",133,"Hulkenberg",420,'M'));
+        pL.add(new Pokemon("Eevee",133,"Bottas",380,'M'));
+        pL.add(new Pokemon("Eevee",133,"Zhou",240,'M'));
+        pL.add(new Pokemon("Eevee",133,"Tsunoda",420,'M'));
+        pL.add(new Pokemon("Eevee",133,"Magnussen",380,'M'));
+        pL.add(new Pokemon("Eevee",133,"Sargeant",240,'M'));
+        pL.add(new Pokemon("Eevee",133,"De Vries",420,'M'));
+        pL.add(new Pokemon("Eevee",133,"Ricciardo",380,'M'));
 
 
 

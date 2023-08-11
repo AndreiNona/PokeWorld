@@ -1,16 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/text_pokemon_name"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#CC0000"
-        android:textSize="40sp"
-        android:text="Test"
-        android:layout_gravity="center"/>
+        android:layout_height="80dp"
+
+        android:background="@drawable/plains_mini_background">
+
+        <ImageView
+            android:id="@+id/image_my_pokemon"
+            android:layout_width="73dp"
+            android:layout_height="81dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text_pokemon_card_name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/pokemon_eevee" />
+
+
+
+        <ImageView
+            android:id="@+id/pokemon_card_name"
+            android:layout_width="55dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="72dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pokemon_name_color" />
+
+        <TextView
+            android:id="@+id/text_pokemon_card_name"
+            android:layout_width="105dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/pokemon_font_alternative"
+            android:text="PlaceHolderName"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/pokemon_card_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/pokemon_card_nickname"
+            android:layout_width="55dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="72dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_card_name"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/pokemon_nickname" />
+
+
+        <TextView
+            android:id="@+id/text_pokemon_card_nickname"
+            android:layout_width="105dp"
+            android:layout_height="41dp"
+            android:fontFamily="@font/pokemon_font_alternative"
+            android:text="PlaceHolderNickname"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.231"
+            app:layout_constraintStart_toEndOf="@+id/image_my_pokemon"
+            app:layout_constraintTop_toBottomOf="@+id/text_pokemon_card_name"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/pokemon_card_pokedex_number"
+            android:layout_width="42dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="104dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/text_pokemon_card_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.068"
+            app:srcCompat="@drawable/pokemon_pokedex" />
+
+        <TextView
+            android:id="@+id/text_pokemon_card_pokedex_number"
+            android:layout_width="29dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/pokemon_font_alternative"
+            android:text="144"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.033"
+            app:layout_constraintStart_toEndOf="@+id/pokemon_card_pokedex_number"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/pokemon_card_combat_power"
+            android:layout_width="39dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="104dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/text_pokemon_card_nickname"
+            app:layout_constraintTop_toBottomOf="@+id/text_pokemon_card_pokedex_number"
+            app:layout_constraintVertical_bias="0.772"
+            app:srcCompat="@drawable/pokemon_pokeball_catch" />
+
+        <TextView
+            android:id="@+id/text_pokemon_card_combat_power"
+            android:layout_width="40dp"
+            android:layout_height="29dp"
+            android:fontFamily="@font/pokemon_font_alternative"
+            android:text="1200"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.029"
+            app:layout_constraintStart_toEndOf="@+id/pokemon_card_combat_power"
+            app:layout_constraintTop_toBottomOf="@+id/text_pokemon_card_pokedex_number"
+            app:layout_constraintVertical_bias="0.85" />
+
+        <Button
+            android:id="@+id/pokemon_action_button"
+            android:layout_width="96dp"
+            android:layout_height="74dp"
+            android:fontFamily="@font/pokemon_font_alternative"
+            android:text="Action"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </LinearLayout>

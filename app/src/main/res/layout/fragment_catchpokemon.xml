@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bike_ride_background"
-    tools:context=".view.AddPokemonFragment">
+    tools:context=".view.CatchPokemonFragment">
 
     <TextView
         android:id="@+id/text_message"
@@ -100,6 +100,7 @@
         android:text="Add"
         android:textColor="@color/black"
         android:backgroundTint="@color/cloud_white"
+        android:fontFamily="@font/pokemon_font_alternative"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.198"
@@ -114,6 +115,7 @@
         android:text="See"
         android:textColor="@color/black"
         android:backgroundTint="@color/cloud_white"
+        android:fontFamily="@font/pokemon_font_alternative"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.753"

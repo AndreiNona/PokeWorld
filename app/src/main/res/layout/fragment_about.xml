@@ -9,7 +9,7 @@
     android:id="@+id/constraint_about_us">
 
     <TextView
-        android:id="@+id/text_response"
+        android:id="@+id/text_about_us_description_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -18,12 +18,45 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textColor="@color/white"
+        android:fontFamily="@font/pokemon_font_alternative"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.019" />
+
+    <TextView
+        android:id="@+id/text_about_us_description_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemon_font_alternative"
+        android:text="@string/about_us_description_2"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_about_us_description_1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/text_about_us_description_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemon_font_alternative"
+        android:text="@string/about_us_description_disclaimer"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_about_us_description_2"
+        app:layout_constraintVertical_bias="0.981" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -36,4 +69,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.003"
         app:srcCompat="@drawable/split_image_pokemon_games" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

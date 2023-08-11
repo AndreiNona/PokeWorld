@@ -23,9 +23,9 @@
 
     <fragment
         android:id="@+id/nav_add_pokemon"
-        android:name="and.andrei.pokeworld.view.AddPokemonFragment"
-        android:label="@string/menu_add_pokemon"
-        tools:layout="@layout/fragment_addpokemon" />
+        android:name="and.andrei.pokeworld.view.CatchPokemonFragment"
+        android:label="@string/menu_catch_pokemon"
+        tools:layout="@layout/fragment_catchpokemon" />
 
     <fragment
         android:id="@+id/nav_pokedex"
