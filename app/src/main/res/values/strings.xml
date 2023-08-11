@@ -8,8 +8,9 @@
     <string name="action_LogOut">Log Out</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_add_pokemon">AddPokemon</string>
+    <string name="menu_pokedex">Pokedex</string>
+    <string name="menu_about">About Us!</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -19,4 +20,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="about_us_description_1">PokeWorld is your one stop shop for keeping track of all your pesky pokemon.</string>
+    <string name="about_us_description_2">In this app you can add any Pokemon you might have caught during your adventures!</string>
+    <string name="about_us_description_disclaimer">We work on a trust system! To get the best experience please be truthful with us and yourself!</string>
 </resources>

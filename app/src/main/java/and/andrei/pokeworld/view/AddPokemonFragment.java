@@ -1,4 +1,6 @@
-package and.andrei.pokeworld.ui.gallery;
+package and.andrei.pokeworld.view;
+
+import static java.lang.Character.toUpperCase;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -48,17 +50,33 @@ public class AddPokemonFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String Name,Nickname;int Number,CP;char Gender;
-                Name=name.getText().toString();Nickname=nickname.getText().toString();
-                if(Name.isEmpty() ||Nickname.isEmpty()){
-                    Toast.makeText(getContext(), "Please fill in all the fields", Toast.LENGTH_SHORT).show();
-                }else{
+                try {
+                    Name=name.getText().toString();Nickname=nickname.getText().toString();
                     Number=Integer.parseInt(number.getText().toString());CP=Integer.parseInt(cp.getText().toString());
-                    Gender=gender.getText().charAt(0);
-                    placeholderPokemon.setName(Name);placeholderPokemon.setNickname(Nickname);
-                    placeholderPokemon.setPokedexNumber(Number);placeholderPokemon.setCP(CP);
-                    placeholderPokemon.setGender(Gender);
-                    addPokemonViewModel.addPokemon(placeholderPokemon);
-                    message.setText(addPokemonViewModel.getMessage());
+                    Gender=toUpperCase(gender.getText().charAt(0));
+                    if(Name.isEmpty())
+                        Toast.makeText(getContext(), "Your buddy needs a name!", Toast.LENGTH_SHORT).show();
+                    else
+                        if(Gender == 'F' || Gender =='M' || Gender =='N'){
+                            //If we have no nickname we use the name for it
+                            if(Nickname.isEmpty()){
+                                placeholderPokemon.setName(Name);placeholderPokemon.setNickname(Name);
+                            } else{
+                                placeholderPokemon.setName(Name);placeholderPokemon.setNickname(Nickname);
+                            }
+                            placeholderPokemon.setPokedexNumber(Number);placeholderPokemon.setCP(CP);
+                            placeholderPokemon.setGender(Gender);
+                            addPokemonViewModel.addPokemon(placeholderPokemon);
+                            message.setText(addPokemonViewModel.getMessage());
+                            //IF everything goes well the action ends here!
+                        }
+                        else
+                            Toast.makeText(getContext(), "Please tell us your buddy's gender", Toast.LENGTH_SHORT).show();
+
+                }catch (NumberFormatException e){
+                    Toast.makeText(getContext(), "Please fill in all the required fields!", Toast.LENGTH_SHORT).show();
+                }catch (IndexOutOfBoundsException e){
+                    Toast.makeText(getContext(), "Your buddy needs a gender", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -74,22 +92,5 @@ public class AddPokemonFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_addpokemon, container, false);
     }
-//    public View onCreateView(@NonNull LayoutInflater inflater,
-//                             ViewGroup container, Bundle savedInstanceState) {
-//        AddPokemonViewModel pokemonViewModel =
-//                new ViewModelProvider(this).get(AddPokemonViewModel.class);
-//
-//        binding = FragmentAddpokemonBinding.inflate(inflater, container, false);
-//        View root = binding.getRoot();
-//
-//        final TextView textView = binding.textGallery;
-//        pokemonViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-//        return root;
-//    }
-//
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//        binding = null;
-//    }
+
 }

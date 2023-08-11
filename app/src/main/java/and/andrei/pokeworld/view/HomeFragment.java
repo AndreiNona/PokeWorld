@@ -1,10 +1,9 @@
-package and.andrei.pokeworld.ui.home;
+package and.andrei.pokeworld.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,15 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import and.andrei.pokeworld.R;
-import and.andrei.pokeworld.databinding.FragmentHomeBinding;
+
 import and.andrei.pokeworld.lists.PokemonAdapter;
 import and.andrei.pokeworld.model.Pokemon;
 import and.andrei.pokeworld.viewModel.AddPokemonViewModel;
-import and.andrei.pokeworld.viewModel.ViewPokemonViewModel;
 
 public class HomeFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
 
 
     private AddPokemonViewModel addPokemonViewModel;
@@ -47,17 +44,17 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.hasFixedSize();
         //For testing recyclerView
-//        List<Pokemon> pL = new ArrayList<>();
-//        pL.add(new Pokemon("Andrei",2,"Bob"));
-//        pL.add(new Pokemon("Andr3i",23,"B3b"));
-//        pL.add(new Pokemon("An2ei",4,"Bo1"));
+        List<Pokemon> pL = new ArrayList<>();
+        pL.add(new Pokemon("Andrei",2,"Bob"));
+        pL.add(new Pokemon("Andr3i",23,"B3b"));
+        pL.add(new Pokemon("An2ei",4,"Bo1"));
 
 
 
 
-        PokemonAdapter adapter = new PokemonAdapter( addPokemonViewModel.getAllPokemon().getValue());
-//        PokemonAdapter adapter = new PokemonAdapter(pL);
-//        recyclerView.setAdapter(adapter);
+        //PokemonAdapter adapter = new PokemonAdapter( addPokemonViewModel.getAllPokemon().getValue());
+        PokemonAdapter adapter = new PokemonAdapter(pL);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

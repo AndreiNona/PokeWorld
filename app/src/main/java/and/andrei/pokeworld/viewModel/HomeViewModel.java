@@ -12,12 +12,12 @@ import and.andrei.pokeworld.DAO.PokemonRepository;
 import and.andrei.pokeworld.model.Pokemon;
 
 //TODO: Fix class from showing as null
-public class ViewPokemonViewModel extends AndroidViewModel {
+public class HomeViewModel extends AndroidViewModel {
 
     private String message;
     private PokemonRepository repository;
 
-    public ViewPokemonViewModel(@NonNull Application application) {
+    public HomeViewModel(@NonNull Application application) {
         super(application);
         repository= PokemonRepository.getInstance(application);
     }

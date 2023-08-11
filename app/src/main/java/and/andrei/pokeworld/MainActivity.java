@@ -33,7 +33,7 @@ import and.andrei.pokeworld.viewModel.AddPokemonViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView displayName;
+    TextView displayName, displayEmail;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private FirebaseAuth auth;
@@ -49,16 +49,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarMain.toolbar);
 
 
-
-
         auth = FirebaseAuth.getInstance();
-        FirebaseUser activeUser = auth.getCurrentUser();
-        //displayName = findViewById(R.id.name);
-        //displayName.setText(activeUser.getUid()); //User returns null, calling .getCurrentUser too fast to update?
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Share feature is not implemented yet", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -67,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_add_pokemon, R.id.nav_pokedex)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -81,6 +76,18 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+        //Get current user
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser activeUser = auth.getCurrentUser();
+
+        //Load texts
+        displayName = findViewById(R.id.profile_user_name);
+        displayEmail = findViewById(R.id.profile_user_email);
+
+        //Replace placeholders with user data
+        displayName.setText(activeUser.getDisplayName());
+        displayEmail.setText(activeUser.getEmail());
         return true;
     }
 
