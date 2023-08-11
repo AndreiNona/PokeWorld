@@ -133,7 +133,7 @@
             android:layout_width="96dp"
             android:layout_height="74dp"
             android:fontFamily="@font/pokemon_font_alternative"
-            android:text="Action"
+            android:text="View"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
