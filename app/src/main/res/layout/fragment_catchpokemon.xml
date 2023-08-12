@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.683" />
 
     <EditText
-        android:id="@+id/edit_text_name"
+        android:id="@+id/edit_text_catch_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.037" />
 
     <EditText
-        android:id="@+id/edit_text_pokedexNumber"
+        android:id="@+id/edit_text_catch_pokedexNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/edit_text_nickname"
+        android:id="@+id/edit_text_catch_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -66,7 +66,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/edit_text_CP"
+        android:id="@+id/edit_text_catch_CP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -80,7 +80,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/edit_text_gender"
+        android:id="@+id/edit_text_catch_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -97,7 +97,8 @@
         android:id="@+id/button_addPokemon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
+        android:drawableStart="@drawable/pokemon_pokeball_catch"
+        android:text="Catch"
         android:textColor="@color/black"
         android:backgroundTint="@color/cloud_white"
         android:fontFamily="@font/pokemon_font_alternative"

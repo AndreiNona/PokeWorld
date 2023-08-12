@@ -3,6 +3,7 @@ package and.andrei.pokeworld.lists;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,12 +17,18 @@ import and.andrei.pokeworld.model.Pokemon;
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder> {
 
     private List<Pokemon> pokemons;
-    private View.OnClickListener listener;
+    Button pokemonViewButton;
+    private OnClickListener listener;
 
-    public PokemonAdapter(List<Pokemon> pokemons){
+    public PokemonAdapter(List<Pokemon> pokemons, OnClickListener onClickListener){
         this.pokemons=pokemons;
+        this.listener = onClickListener;
     }
 
+    public void setPokemons(List<Pokemon> pokemons){
+        this.pokemons=pokemons;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public PokemonAdapter.PokemonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,6 +40,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
 
     @Override
     public void onBindViewHolder(@NonNull PokemonAdapter.PokemonViewHolder holder, int position) {
+
 
         holder.pokemonName.setText(pokemons.get(position).getName());
         holder.pokemonNickName.setText(pokemons.get(position).getNickname());
@@ -48,7 +56,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
         else
             return 0;
     }
-    class PokemonViewHolder extends RecyclerView.ViewHolder{
+    class PokemonViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView pokemonName;
         TextView pokemonNickName;
@@ -60,7 +68,19 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
             pokemonPokedexNo = pokeView.findViewById(R.id.text_pokemon_card_pokedex_number);
             pokemonNickName =pokeView.findViewById(R.id.text_pokemon_card_nickname);
             pokemonCombatPower = pokeView.findViewById(R.id.text_pokemon_card_combat_power);
+            pokemonViewButton =pokeView.findViewById(R.id.pokemon_action_button);
+            pokemonViewButton.setOnClickListener(this);
         }
-
+        @Override
+        public void onClick(View view) {
+            if(view.getId() == pokemonViewButton.getId()){
+                listener.onClick(pokemons.get(getBindingAdapterPosition()));
+                notifyDataSetChanged();
+            }
+        }
+    }
+    public interface OnClickListener{
+        void onClick(Pokemon pokemon);
+        void onButtonClick(Pokemon pokemon);
     }
 }

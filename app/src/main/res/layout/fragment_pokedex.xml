@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pokedexLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/pokedex_background"
@@ -36,7 +37,7 @@
     <TextView
         android:id="@+id/text_pokedex_name_label"
         android:layout_width="70dp"
-        android:layout_height="23dp"
+        android:layout_height="38dp"
         android:layout_marginStart="4dp"
         android:fontFamily="@font/pokemon_font_alternative"
         android:text="Name:"
@@ -45,104 +46,125 @@
         app:layout_constraintStart_toEndOf="@+id/image_pokedex"
         app:layout_constraintTop_toTopOf="@+id/image_pokedex" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:fontFamily="@font/pokemon_font_alternative"
-        android:text="PlaceHolderName"
-        android:textColor="@color/black"
-        android:textSize="12dp"
+    <EditText
+        android:id="@+id/edit_text_pokedex_name"
+        android:layout_width="134dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintStart_toEndOf="@+id/text_pokedex_name_label"
         app:layout_constraintTop_toTopOf="@+id/text_pokedex_name_label" />
 
-    <TextView
-        android:id="@+id/text_pokedex_pokeNumber_label"
-        android:layout_width="70dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="23dp"
-        android:fontFamily="@font/pokemon_font_alternative"
-        android:text="PokeNumber:"
-        android:textColor="@color/white"
-        android:textSize="11dp"
-        app:layout_constraintStart_toEndOf="@+id/image_pokedex"
-        app:layout_constraintTop_toTopOf="@+id/text_pokedex_name_label" />
-
-    <TextView
-        android:id="@+id/text_pokedex_pokedexNo"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:fontFamily="@font/pokemon_font_alternative"
-        android:text="113"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/text_pokedex_pokeNumber_label"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/text_pokedex_nickname_label"
-        android:layout_width="70dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="23dp"
-        android:fontFamily="@font/pokemon_font_alternative"
-        android:text="Nickname"
-        android:textColor="@color/white"
-        android:textSize="11dp"
-        app:layout_constraintStart_toEndOf="@+id/image_pokedex"
-        app:layout_constraintTop_toTopOf="@+id/text_pokedex_pokeNumber_label" />
-
-    <TextView
-        android:id="@+id/text_pokedex_nickname"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:fontFamily="@font/pokemon_font_alternative"
-        android:text="Jeff"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/text_pokedex_nickname_label"
-        app:layout_constraintTop_toBottomOf="@+id/text_pokedex_pokedexNo" />
-    <TextView
-        android:id="@+id/text_pokedex_CP_label"
-        android:layout_width="70dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="23dp"
-        android:fontFamily="@font/pokemon_font_alternative"
-        android:text="CP:"
-        android:textColor="@color/white"
-        android:textSize="11dp"
-        app:layout_constraintStart_toEndOf="@+id/image_pokedex"
-        app:layout_constraintTop_toTopOf="@+id/text_pokedex_nickname_label" />
-    <TextView
-        android:id="@+id/text_pokedex_CP"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:fontFamily="@font/pokemon_font_alternative"
-        android:text="1400"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/text_pokedex_CP_label"
-        app:layout_constraintTop_toBottomOf="@+id/text_pokedex_nickname" />
 
     <TextView
         android:id="@+id/text_pokedex_gender_label"
         android:layout_width="70dp"
-        android:layout_height="23dp"
+        android:layout_height="38dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="23dp"
         android:fontFamily="@font/pokemon_font_alternative"
         android:text="Gender:"
         android:textColor="@color/white"
         android:textSize="11dp"
         app:layout_constraintStart_toEndOf="@+id/image_pokedex"
-        app:layout_constraintTop_toTopOf="@+id/text_pokedex_CP_label" />
-    <TextView
-        android:id="@+id/text_pokedex_gender"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:fontFamily="@font/pokemon_font_alternative"
-        android:text="M"
-        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/text_pokedex_CP_label" />
+
+    <EditText
+        android:id="@+id/edit_text_pokedex_gender"
+        android:layout_width="134dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintStart_toEndOf="@+id/text_pokedex_gender_label"
-        app:layout_constraintTop_toBottomOf="@+id/text_pokedex_CP" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_pokedex_cp" />
+
+    <TextView
+        android:id="@+id/text_pokedex_CP_label"
+        android:layout_width="70dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/pokemon_font_alternative"
+        android:text="CP:"
+        android:textColor="@color/white"
+        android:textSize="11dp"
+        app:layout_constraintStart_toEndOf="@+id/image_pokedex"
+        app:layout_constraintTop_toBottomOf="@+id/text_pokedex_nickname_label" />
+
+    <EditText
+        android:id="@+id/edit_text_pokedex_cp"
+        android:layout_width="134dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/text_pokedex_CP_label"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_pokedex_nickname" />
+
+    <TextView
+        android:id="@+id/text_pokedex_nickname_label"
+        android:layout_width="70dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/pokemon_font_alternative"
+        android:text="Nickname"
+        android:textColor="@color/white"
+        android:textSize="11dp"
+        app:layout_constraintStart_toEndOf="@+id/image_pokedex"
+        app:layout_constraintTop_toBottomOf="@+id/text_pokedex_pokeNumber_label" />
+
+    <EditText
+        android:id="@+id/edit_text_pokedex_nickname"
+        android:layout_width="134dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toEndOf="@+id/text_pokedex_nickname_label"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_pokedex_pokedexno" />
+
+    <TextView
+        android:id="@+id/text_pokedex_pokeNumber_label"
+        android:layout_width="70dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/pokemon_font_alternative"
+        android:text="PokeNumber:"
+        android:textColor="@color/white"
+        android:textSize="11dp"
+        app:layout_constraintStart_toEndOf="@+id/image_pokedex"
+        app:layout_constraintTop_toBottomOf="@+id/text_pokedex_name_label" />
+
+    <EditText
+        android:id="@+id/edit_text_pokedex_pokedexno"
+        android:layout_width="134dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/text_pokedex_pokeNumber_label"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_pokedex_name" />
+
+
+    <Button
+        android:id="@+id/button_pokedex_release"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Release"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toEndOf="@+id/button_pokedex_edit"
+        app:layout_constraintTop_toTopOf="@+id/button_pokedex_edit"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_pokedex_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="496dp"
+        android:text="Edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

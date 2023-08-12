@@ -3,6 +3,7 @@ package and.andrei.pokeworld.view;
 import static java.lang.Character.toUpperCase;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,11 +39,11 @@ public class CatchPokemonFragment extends Fragment {
 
     }
     private void initializeViews(View view){
-        name = view.findViewById(R.id.edit_text_name);
-        number = view.findViewById(R.id.edit_text_pokedexNumber);
-        nickname = view.findViewById(R.id.edit_text_nickname);
-        cp = view.findViewById(R.id.edit_text_CP);
-        gender = view.findViewById(R.id.edit_text_gender);
+        name = view.findViewById(R.id.edit_text_catch_name);
+        number = view.findViewById(R.id.edit_text_catch_pokedexNumber);
+        nickname = view.findViewById(R.id.edit_text_catch_nickname);
+        cp = view.findViewById(R.id.edit_text_catch_CP);
+        gender = view.findViewById(R.id.edit_text_catch_gender);
         message=view.findViewById(R.id.text_message);
         addPokemon = view.findViewById(R.id.button_addPokemon);
         addPokemon.setOnClickListener(new View.OnClickListener() {
