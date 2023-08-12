@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment {
          adapter = new PokemonAdapter( viewModel.getAllPokemon().getValue(), new PokemonAdapter.OnClickListener(){
              @Override
              public void onClick(Pokemon pokemon) {
-                 Toast.makeText(getContext(), "onClick", Toast.LENGTH_SHORT).show();
+
                  Bundle bundle = new Bundle();
                  bundle.putSerializable("pokemon", pokemon);
                  navController.navigate(R.id.nav_pokedex,bundle);
@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
 
              @Override
              public void onButtonClick(Pokemon pokemon) {
-                 Toast.makeText(getContext(), "onButtonClick", Toast.LENGTH_SHORT).show();
+
                  Bundle bundle = new Bundle();
                  bundle.putSerializable("pokemon", pokemon);
                  navController.navigate(R.id.nav_pokedex,bundle);

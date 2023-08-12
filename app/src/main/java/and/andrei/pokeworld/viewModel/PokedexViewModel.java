@@ -24,7 +24,10 @@ public class PokedexViewModel extends AndroidViewModel {
         repository= PokemonRepository.getInstance(application);
     }
 
-//    public Pokemon getPokemonByName(String name){
-//        return pokemonApi.getPokemon(name);
-//    }
+    public void update(Pokemon pokemon){
+        repository.update(pokemon);
+    }
+    public void delete(Pokemon pokemon){
+        repository.delete(pokemon);
+    }
 }

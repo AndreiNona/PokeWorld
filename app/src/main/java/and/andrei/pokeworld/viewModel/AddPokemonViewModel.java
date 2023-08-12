@@ -39,4 +39,5 @@ public class AddPokemonViewModel extends AndroidViewModel {
     public LiveData<List<Pokemon>> getAllPokemon(){
         return repository.getAllPokemons();
     }
+
 }

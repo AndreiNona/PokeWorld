@@ -7,8 +7,10 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,8 @@ public class CatchPokemonFragment extends Fragment {
     private EditText name,number,nickname,cp,gender;
     private Button addPokemon, seeLatest;
 
+    Spinner spinnerGender;
+
     private TextView message;
 
     public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState){
@@ -39,13 +43,28 @@ public class CatchPokemonFragment extends Fragment {
 
     }
     private void initializeViews(View view){
+
+        //Edit text
         name = view.findViewById(R.id.edit_text_catch_name);
         number = view.findViewById(R.id.edit_text_catch_pokedexNumber);
         nickname = view.findViewById(R.id.edit_text_catch_nickname);
         cp = view.findViewById(R.id.edit_text_catch_CP);
-        gender = view.findViewById(R.id.edit_text_catch_gender);
+        //gender = view.findViewById(R.id.edit_text_catch_gender);
+
+        //Text
         message=view.findViewById(R.id.text_message);
+
+        //Spinner
+        spinnerGender =view.findViewById(R.id.spinner_catch_pokemon);
+
+        ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this.getActivity(), R.array.genders, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spinnerGender.setAdapter(adapter);
+        spinnerGender.setSelection(0);
+
+        //Buttons
         addPokemon = view.findViewById(R.id.button_addPokemon);
+
         addPokemon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +72,9 @@ public class CatchPokemonFragment extends Fragment {
                 try {
                     Name=name.getText().toString();Nickname=nickname.getText().toString();
                     Number=Integer.parseInt(number.getText().toString());CP=Integer.parseInt(cp.getText().toString());
-                    Gender=toUpperCase(gender.getText().charAt(0));
+
+                    Gender=spinnerGender.getSelectedItem().toString().charAt(0);
+
                     if(Name.isEmpty())
                         Toast.makeText(getContext(), "Your buddy needs a name!", Toast.LENGTH_SHORT).show();
                     else
@@ -67,7 +88,8 @@ public class CatchPokemonFragment extends Fragment {
                             placeholderPokemon.setPokedexNumber(Number);placeholderPokemon.setCP(CP);
                             placeholderPokemon.setGender(Gender);
                             addPokemonViewModel.addPokemon(placeholderPokemon);
-                            message.setText(addPokemonViewModel.getMessage());
+                            Toast.makeText(getContext(), placeholderPokemon.getName()+" Is now in your collection!", Toast.LENGTH_SHORT).show();
+                            //message.setText(addPokemonViewModel.getMessage());
                             //IF everything goes well the action ends here!
                         }
                         else
@@ -81,12 +103,7 @@ public class CatchPokemonFragment extends Fragment {
             }
         });
     }
-    private void initializeFormSpinner(View view){
 
-    }
-    private void initializeUnitSpinner(View view){
-
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

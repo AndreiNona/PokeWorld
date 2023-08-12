@@ -33,6 +33,8 @@ public class PokemonRepository implements PokemonDao{
     public LiveData<List<Pokemon>> getAllPokemons(){
         return allPokemons;
     }
+
+
     public void insert(Pokemon pokemon){
         executorService.execute(() -> pokemonDao.insert(pokemon));
     }
