@@ -41,7 +41,12 @@ public class PokedexItemFragment extends Fragment {
             Bundle bundle =getArguments();
             currentPokemon = (Pokemon) bundle.getSerializable("pokemon");
         }
-        currentItem =viewModel.getItemByPokemon(currentPokemon.getId()).getValue();
+        try {
+            currentItem =viewModel.getItemByPokemon(currentPokemon.getId());
+        }catch (Exception e){
+            currentItem=null;
+        }
+
         initializeViews(view);
         initializeList();
 
@@ -53,8 +58,11 @@ public class PokedexItemFragment extends Fragment {
         itemName = view.findViewById(R.id.text_pokedex_item_name);
 
         pokeName.setText(currentPokemon.getName());
-        itemName.setText(currentItem.getName());
-        Toast.makeText(getContext(), currentItem.getName()+" Is your item!", Toast.LENGTH_SHORT).show();
+        try {
+            itemName.setText(currentItem.getName());
+        }catch (Exception e){
+            itemName.setText("No item");
+        }
 
     }
 
@@ -66,7 +74,14 @@ public class PokedexItemFragment extends Fragment {
         adapter = new ItemAdapter( viewModel.getAllItems().getValue(), new ItemAdapter.OnClickListener(){
             @Override
             public void onClick(Item item) {
-
+                if (item.equals(currentItem))
+                    Toast.makeText(getContext(), currentPokemon.getName()+" already has this item", Toast.LENGTH_SHORT).show();
+                else{
+                    viewModel.changeItem(currentItem,item,currentPokemon.getId());
+                    currentItem=item;
+                    itemName.setText(currentItem.getName());
+                    Toast.makeText(getContext(), currentItem.getName()+" equipped", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

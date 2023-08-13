@@ -29,7 +29,4 @@ public interface PokemonDao {
     @Query("SELECT * FROM pokemon_table ORDER BY pokedexNumber,name")
     LiveData<List<Pokemon>> getAllPokemons();
 
-    @Transaction
-    @Query("SELECT * FROM pokemon_table WHERE id = :PokeID")
-    public PokemonAndItem getPokemonAndItem(long PokeID);
 }

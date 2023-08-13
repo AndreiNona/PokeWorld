@@ -35,12 +35,6 @@ public class PokemonRepository implements PokemonDao{
         return allPokemons;
     }
 
-    @Override
-    public PokemonAndItem getPokemonAndItem(long PokeID) {
-        return new PokemonAndItem();
-    }
-
-
     public void insert(Pokemon pokemon){
         executorService.execute(() -> pokemonDao.insert(pokemon));
     }

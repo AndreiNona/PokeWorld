@@ -3,7 +3,6 @@ package and.andrei.pokeworld.view;
 import static java.lang.Character.toUpperCase;
 
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +24,7 @@ import and.andrei.pokeworld.viewModel.AddPokemonViewModel;
 public class CatchPokemonFragment extends Fragment {
 
 
-    private AddPokemonViewModel addPokemonViewModel;
+    private AddPokemonViewModel ViewModel;
     private Pokemon placeholderPokemon;
 
     private EditText name,number,nickname,cp,gender;
@@ -37,7 +36,7 @@ public class CatchPokemonFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState){
         super.onViewCreated(view,savedInstanceState);
-        addPokemonViewModel = new ViewModelProvider(getActivity()).get(AddPokemonViewModel.class);
+        ViewModel = new ViewModelProvider(getActivity()).get(AddPokemonViewModel.class);
         placeholderPokemon = new Pokemon();
         initializeViews(view);
 
@@ -87,7 +86,7 @@ public class CatchPokemonFragment extends Fragment {
                             }
                             placeholderPokemon.setPokedexNumber(Number);placeholderPokemon.setCP(CP);
                             placeholderPokemon.setGender(Gender);
-                            addPokemonViewModel.addPokemon(placeholderPokemon);
+                            ViewModel.addPokemon(placeholderPokemon);
                             Toast.makeText(getContext(), placeholderPokemon.getName()+" Is now in your collection!", Toast.LENGTH_SHORT).show();
                             //message.setText(addPokemonViewModel.getMessage());
                             //IF everything goes well the action ends here!

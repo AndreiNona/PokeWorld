@@ -27,7 +27,7 @@ public class AddIemFragment extends Fragment {
     private EditText name,description;
     private Button addItem, seeLatest;
 
-    private TextView message;
+
 
     public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState){
         super.onViewCreated(view,savedInstanceState);
@@ -39,7 +39,6 @@ public class AddIemFragment extends Fragment {
     private void initializeViews(View view){
         name = view.findViewById(R.id.edit_text_item_name);
         description = view.findViewById(R.id.edit_text_item_description);
-        message=view.findViewById(R.id.text_item_confirmation);
         addItem = view.findViewById(R.id.button_addItem);
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +50,7 @@ public class AddIemFragment extends Fragment {
                 else {
                     placeholderitem.setName(Name);placeholderitem.setDescription(Description);
                     addItemViewModel.addItem(placeholderitem);
-                    message.setText(addItemViewModel.getMessage());
+                    Toast.makeText(getContext(), placeholderitem.getName()+" added", Toast.LENGTH_SHORT).show();
                 }
             }
         });

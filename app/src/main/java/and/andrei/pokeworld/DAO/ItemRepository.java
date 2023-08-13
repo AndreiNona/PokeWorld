@@ -5,8 +5,10 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import and.andrei.pokeworld.model.Item;
 
@@ -14,8 +16,9 @@ public class ItemRepository implements ItemDao{
     private final ItemDao itemDao;
     private static  ItemRepository instance;
     private LiveData<List<Item>> allItems;
-    private LiveData<Item> queryItem;
+    private Item queryItem;
     private final ExecutorService executorService;
+    CountDownLatch latch = new CountDownLatch(2);
 
     private ItemRepository(Application application){
         PokeWorldDataBase dataBase = PokeWorldDataBase.getInstance(application);
@@ -35,8 +38,8 @@ public class ItemRepository implements ItemDao{
     }
 
     @Override
-    public LiveData<Item> getItemByPokemon(long id) {
-        executorService.execute(() -> queryItem=itemDao.getItemByPokemon(id));
+    public Item getItemByPokemon(long id) {
+        queryItem=itemDao.getItemByPokemon(id);
         return queryItem;
     }
 

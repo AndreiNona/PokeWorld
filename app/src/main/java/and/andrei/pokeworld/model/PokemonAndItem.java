@@ -4,6 +4,8 @@ import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Relation;
 
+
+//Not used but: Possible database implication for deleting
 public class PokemonAndItem {
     @Embedded public Pokemon pokemon;
     @Relation(

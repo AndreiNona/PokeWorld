@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,21 +28,21 @@ public class PokedexFragment extends Fragment {
     
     Pokemon currentPokemon;
 
-    TextView response;
+
 
     EditText name,nickname,pokedexNo,cp,gender;
     Button delete, powerUp,editNickname, evolve,changeGender,assignItem;
 
     Spinner spinnerGender;
 
-    private PokedexViewModel pokedexViewModel;
+    private PokedexViewModel ViewModel;
     private NavController navController;
 
     @Override
     public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        pokedexViewModel = new ViewModelProvider(getActivity()).get(PokedexViewModel.class);
+        ViewModel = new ViewModelProvider(getActivity()).get(PokedexViewModel.class);
         navController = Navigation.findNavController(view);
 
         if(getArguments()!= null){
@@ -59,7 +58,7 @@ public class PokedexFragment extends Fragment {
     }
     private void initializeViews(View view){
 
-        response = view.findViewById(R.id.text_response);
+
 
         //Edit text
         name = view.findViewById(R.id.edit_text_pokedex_name);
@@ -117,7 +116,7 @@ public class PokedexFragment extends Fragment {
                 else {
                     currentPokemon.setNickname(holder);
                     Toast.makeText(getContext(), "Your buddy has a new nickname!", Toast.LENGTH_SHORT).show();
-                    pokedexViewModel.update(currentPokemon);
+                    ViewModel.update(currentPokemon);
                 }
 
             }
@@ -136,7 +135,7 @@ public class PokedexFragment extends Fragment {
                         else
                             Toast.makeText(getContext(), "Your buddy powered down :(", Toast.LENGTH_SHORT).show();
                         currentPokemon.setCP(holder);
-                        pokedexViewModel.update(currentPokemon);
+                        ViewModel.update(currentPokemon);
 
                     }
                 }catch (NumberFormatException e){
@@ -157,7 +156,7 @@ public class PokedexFragment extends Fragment {
                     else {
                         currentPokemon.setName(holderName);
                         currentPokemon.setPokedexNumber(holderPokedex);
-                        pokedexViewModel.update(currentPokemon);
+                        ViewModel.update(currentPokemon);
                         Toast.makeText(getContext(), "Your buddy EVOLVED!!", Toast.LENGTH_LONG).show();
                     }
                 }catch (NumberFormatException e){
@@ -179,7 +178,7 @@ public class PokedexFragment extends Fragment {
                 char holder= spinnerGender.getSelectedItem().toString().charAt(0);
                 if (holder == 'F' || holder =='M' || holder =='N'){
                     currentPokemon.setGender(holder);
-                    pokedexViewModel.update(currentPokemon);
+                    ViewModel.update(currentPokemon);
                     Toast.makeText(getContext(), "Gender reassignment was successful", Toast.LENGTH_SHORT).show();
                 }else
                     Toast.makeText(getContext(), "Something went wrong...", Toast.LENGTH_SHORT).show();
@@ -206,7 +205,7 @@ public class PokedexFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int id) {
 
                         Toast.makeText(getContext(), "Bye Bye "+currentPokemon.getName(), Toast.LENGTH_LONG).show();
-                        pokedexViewModel.delete(currentPokemon);
+                        ViewModel.delete(currentPokemon);
                         FragmentManager fm = getActivity().getSupportFragmentManager();
                         fm.popBackStack();
                     }

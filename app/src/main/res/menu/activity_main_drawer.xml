@@ -16,10 +16,12 @@
             android:id="@+id/nav_add_item"
             android:icon="@drawable/ic_menu_item_bag_alt"
             android:title="@string/menu_and_item" />
+        <!--
         <item
             android:id="@+id/nav_pokedex"
             android:icon="@drawable/ic_menu_pokedex"
             android:title="@string/menu_pokedex" />
+            -->
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_about_us"

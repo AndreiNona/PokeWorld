@@ -19,7 +19,7 @@ public abstract class PokeWorldDataBase extends RoomDatabase {
     public static synchronized PokeWorldDataBase getInstance(Context context){
         if (instance == null){
             instance= Room.databaseBuilder(context.getApplicationContext(),PokeWorldDataBase.class,"PokeWorld_database")
-                    .fallbackToDestructiveMigration().build();
+                    .fallbackToDestructiveMigration().allowMainThreadQueries().build();
         }
         return instance;
     }

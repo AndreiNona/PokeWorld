@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:background="@drawable/mountains_mini_background">
+        android:background="@drawable/computer_mini_background">
 
         <ImageView
             android:id="@+id/image_my_item"
@@ -23,13 +23,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/pokemon_eevee" />
+            app:srcCompat="@drawable/item_razz_berry" />
 
 
         <ImageView
             android:id="@+id/item_card_name"
-            android:layout_width="55dp"
-            android:layout_height="40dp"
+            android:layout_width="73dp"
+            android:layout_height="81dp"
             android:layout_marginStart="72dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -38,17 +38,17 @@
         <TextView
             android:id="@+id/text_item_card_name"
             android:layout_width="105dp"
-            android:layout_height="40dp"
+            android:layout_height="81dp"
             android:layout_gravity="center"
             android:fontFamily="@font/pokemon_font_alternative"
             android:text="PlaceHolderName"
             android:textColor="@color/black"
             android:textSize="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/item_card_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/item_card_name"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/item_card_name"
             app:layout_constraintVertical_bias="0.0" />
 
 
@@ -57,9 +57,20 @@
             android:layout_width="96dp"
             android:layout_height="74dp"
             android:fontFamily="@font/pokemon_font_alternative"
-            android:text="View"
+            android:text="Assign"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_item_card_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pokemon_font_alternative"
+            android:text="Status"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/item_action_button"
+            app:layout_constraintEnd_toStartOf="@+id/item_action_button"
             app:layout_constraintTop_toTopOf="parent" />
 
 

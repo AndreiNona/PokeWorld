@@ -41,6 +41,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.ItemViewHolder holder, int position) {
         holder.itemName.setText(items.get(position).getName());
+        if(items.get(position).getId() ==0)
+            holder.status.setText("Available");
+        else
+            holder.status.setText("Taken");
     }
 
     @Override
@@ -53,11 +57,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView itemName;
+        TextView itemName, status;
 
         ItemViewHolder(View pokeView){
             super(pokeView);
             itemName = pokeView.findViewById(R.id.text_item_card_name);
+            status= pokeView.findViewById(R.id.text_item_card_status);
             itemViewButton =pokeView.findViewById(R.id.item_action_button);
             itemViewButton.setOnClickListener(this);
         }

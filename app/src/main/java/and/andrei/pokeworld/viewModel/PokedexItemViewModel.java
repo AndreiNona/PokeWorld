@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.loader.content.AsyncTaskLoader;
 
 import java.util.List;
 
@@ -13,30 +14,34 @@ import and.andrei.pokeworld.DAO.PokemonRepository;
 import and.andrei.pokeworld.model.Item;
 import and.andrei.pokeworld.model.Pokemon;
 import and.andrei.pokeworld.model.PokemonAndItem;
-import and.andrei.pokeworld.network.PokemonApi;
-import and.andrei.pokeworld.network.ServiceGenerator;
+
 
 public class PokedexItemViewModel extends AndroidViewModel {
 
-    private PokemonApi pokemonApi;
-    private PokemonRepository repositoryPokemon;
     private ItemRepository repositoryItem;
-    private Pokemon currentPokemon;
-    private Item currentItem;
+
 
     public PokedexItemViewModel(@NonNull Application application) {
         super(application);
-        pokemonApi= ServiceGenerator.getPokemonApi();
-        repositoryPokemon= PokemonRepository.getInstance(application);
+
+
         repositoryItem =ItemRepository.getInstance(application);
     }
     public LiveData<List<Item>> getAllItems(){
 
         return repositoryItem.getAllItems();
     }
-    public LiveData<Item>  getItemByPokemon (long id){
-
+    public Item getItemByPokemon (long id) {
         return repositoryItem.getItemByPokemon(id);
+    }
+    public void changeItem(Item equipped, Item toEquip, long pokemonID){
+
+        if (equipped!=null){
+            equipped.setId(0);
+            repositoryItem.update(equipped);
+        }
+        toEquip.setId(pokemonID);
+        repositoryItem.update(toEquip);
     }
 
 }
