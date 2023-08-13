@@ -54,7 +54,6 @@ public class Pokemon implements Serializable {
         this.name = name;
     }
 
-
     public int getPokedexNumber() {
         return pokedexNumber;
     }

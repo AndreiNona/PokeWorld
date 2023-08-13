@@ -17,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import and.andrei.pokeworld.R;
 import and.andrei.pokeworld.model.Pokemon;
@@ -30,17 +32,19 @@ public class PokedexFragment extends Fragment {
     TextView response;
 
     EditText name,nickname,pokedexNo,cp,gender;
-    Button delete, powerUp,editNickname, evolve,changeGender;
+    Button delete, powerUp,editNickname, evolve,changeGender,assignItem;
 
     Spinner spinnerGender;
 
     private PokedexViewModel pokedexViewModel;
+    private NavController navController;
 
     @Override
     public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
         pokedexViewModel = new ViewModelProvider(getActivity()).get(PokedexViewModel.class);
+        navController = Navigation.findNavController(view);
 
         if(getArguments()!= null){
             Bundle bundle =getArguments();
@@ -48,6 +52,8 @@ public class PokedexFragment extends Fragment {
         }
 
         initializeViews(view);
+
+        initializeButtonActions(view);
 
 
     }
@@ -68,6 +74,7 @@ public class PokedexFragment extends Fragment {
         editNickname =view.findViewById(R.id.button_pokedex_edit_nickname);
         evolve =view.findViewById(R.id.button_pokedex_edit_name_pokedex); //Used to change Name and PokedexNo
         changeGender= view.findViewById(R.id.button_pokedex_edit_gender);
+        assignItem =view.findViewById(R.id.button_pokedex_assign_item);
 
         //Spinner
         spinnerGender =view.findViewById(R.id.spinner_pokedex);
@@ -94,6 +101,9 @@ public class PokedexFragment extends Fragment {
 
         }
 
+    }
+
+    private void initializeButtonActions(View view){
 
         editNickname.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,6 +172,7 @@ public class PokedexFragment extends Fragment {
                 showDecisionDialog();
             }
         });
+
         changeGender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -175,8 +186,16 @@ public class PokedexFragment extends Fragment {
 
             }
         });
-
+        assignItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("pokemon", currentPokemon);
+                navController.navigate(R.id.nav_pokedex_item,bundle);
+            }
+        });
     }
+
     private void showDecisionDialog() {
         AlertDialog.Builder builder;
         builder = new AlertDialog.Builder(this.getActivity());

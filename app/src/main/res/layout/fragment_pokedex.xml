@@ -200,5 +200,13 @@
         app:layout_constraintStart_toEndOf="@+id/text_pokedex_gender_label"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_pokedex_cp" />
 
+    <Button
+        android:id="@+id/button_pokedex_assign_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Items"
+        app:layout_constraintStart_toEndOf="@+id/button_pokedex_release"
+        app:layout_constraintTop_toTopOf="@+id/button_pokedex_release" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

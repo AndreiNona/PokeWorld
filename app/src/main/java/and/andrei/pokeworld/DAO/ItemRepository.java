@@ -14,6 +14,7 @@ public class ItemRepository implements ItemDao{
     private final ItemDao itemDao;
     private static  ItemRepository instance;
     private LiveData<List<Item>> allItems;
+    private LiveData<Item> queryItem;
     private final ExecutorService executorService;
 
     private ItemRepository(Application application){
@@ -31,6 +32,12 @@ public class ItemRepository implements ItemDao{
     }
     public LiveData<List<Item>> getAllItems(){
         return allItems;
+    }
+
+    @Override
+    public LiveData<Item> getItemByPokemon(long id) {
+        executorService.execute(() -> queryItem=itemDao.getItemByPokemon(id));
+        return queryItem;
     }
 
     public void insert(Item item){

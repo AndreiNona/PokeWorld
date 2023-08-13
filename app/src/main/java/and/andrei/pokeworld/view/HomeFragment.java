@@ -20,11 +20,12 @@ import and.andrei.pokeworld.R;
 import and.andrei.pokeworld.lists.PokemonAdapter;
 import and.andrei.pokeworld.model.Pokemon;
 import and.andrei.pokeworld.viewModel.AddPokemonViewModel;
+import and.andrei.pokeworld.viewModel.HomeViewModel;
 
 public class HomeFragment extends Fragment {
 
 
-    private AddPokemonViewModel viewModel;
+    private HomeViewModel viewModel;
     private NavController navController;
 
     PokemonAdapter adapter;
@@ -35,7 +36,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        viewModel = new ViewModelProvider(getActivity()).get(AddPokemonViewModel.class);
+        viewModel = new ViewModelProvider(getActivity()).get(HomeViewModel.class);
         initializeViews(view);
         initializeList();
 

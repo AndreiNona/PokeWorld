@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import and.andrei.pokeworld.model.Item;
 import and.andrei.pokeworld.model.Pokemon;
 
-@Database(entities = {Pokemon.class, Item.class},version = 3, exportSchema = false)
+@Database(entities = {Pokemon.class, Item.class},version = 6, exportSchema = false)
 public abstract class PokeWorldDataBase extends RoomDatabase {
 
     private static PokeWorldDataBase instance;

@@ -5,10 +5,18 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "item_table")
-public class Item {
+import java.io.Serializable;
+
+@Entity(tableName = "item_table",foreignKeys = {@ForeignKey(entity = Pokemon.class,
+        parentColumns = "id",
+        childColumns = "itemID",
+
+        onDelete = ForeignKey.CASCADE)
+})
+public class Item implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private long itemID;
+    private long id;
     private String name;
     private String description;
     @Ignore
@@ -31,6 +39,14 @@ public class Item {
 
     public String getName() {
         return name;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setName(String name) {

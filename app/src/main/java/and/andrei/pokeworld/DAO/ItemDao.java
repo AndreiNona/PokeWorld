@@ -25,4 +25,7 @@ public interface ItemDao {
 
     @Query("SELECT * FROM item_table ORDER BY name")
     LiveData<List<Item>> getAllItems();
+
+    @Query("SELECT * FROM item_table WHERE id = :id")
+    LiveData<Item> getItemByPokemon(long id);
 }

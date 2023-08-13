@@ -9,6 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import and.andrei.pokeworld.model.Pokemon;
+import and.andrei.pokeworld.model.PokemonAndItem;
 
 public class PokemonRepository implements PokemonDao{
 
@@ -32,6 +33,11 @@ public class PokemonRepository implements PokemonDao{
     }
     public LiveData<List<Pokemon>> getAllPokemons(){
         return allPokemons;
+    }
+
+    @Override
+    public PokemonAndItem getPokemonAndItem(long PokeID) {
+        return new PokemonAndItem();
     }
 
 

@@ -39,7 +39,16 @@
         android:id="@+id/nav_pokedex"
         android:name="and.andrei.pokeworld.view.PokedexFragment"
         android:label="@string/menu_pokedex"
-        tools:layout="@layout/fragment_pokedex" />
+        tools:layout="@layout/fragment_pokedex" >
+        <action
+            android:id="@+id/action_nav_pokedex_to_nav_pokedex_item"
+            app:destination="@id/nav_pokedex_item" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_pokedex_item"
+        android:name="and.andrei.pokeworld.view.PokedexItemFragment"
+        android:label="@string/menu_pokedex_item"
+        tools:layout="@layout/fragment_pokedex_itemselect" />
 
     <fragment
         android:id="@+id/nav_about"
